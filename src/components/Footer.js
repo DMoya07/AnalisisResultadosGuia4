@@ -6,7 +6,7 @@ import colors from '../utils/colors';
 export default function Footer(props) {
     const { calculate } = props;
     return (
-        <View style={StyleSheet.viewFooter}>
+        <View style={styles.viewFooter}>
             <TouchableOpacity style={styles.button} onPress={calculate}>
                 <Text style={styles.text}>Calcular</Text>
             </TouchableOpacity>

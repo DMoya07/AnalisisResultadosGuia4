@@ -14,7 +14,7 @@ export default function Form(props) {
                     onChange={(e) => setCapital(e.nativeEvent.text)}
                 />
                 <TextInput
-                    placeholder="Interes %"
+                    placeholder="Interes  %"
                     keyboardType="numeric"
                     style={[styles.input, styles.inputPercentage]}
                     onChange={(e) => setInterest(e.nativeEvent.text)}
