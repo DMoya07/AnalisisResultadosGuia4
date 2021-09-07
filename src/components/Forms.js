@@ -3,37 +3,22 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import colors from '../utils/colors';
 export default function Form(props) {
-    const { setCapital, setInterest, setMonths } = props;
+    const { setNombre, setSalario} = props;
     return (
         <View style={styles.viewForm}>
             <View style={styles.viewInputs}>
                 <TextInput
-                    placeholder="Cantidad a pedir"
-                    keyboardType="numeric"
+                    placeholder="Nombre"
                     style={styles.input}
-                    onChange={(e) => setCapital(e.nativeEvent.text)}
+                    onChange={(e) => setNombre(e.nativeEvent.text)}
                 />
                 <TextInput
-                    placeholder="Interes  %"
+                    placeholder="Salario"
                     keyboardType="numeric"
                     style={[styles.input, styles.inputPercentage]}
-                    onChange={(e) => setInterest(e.nativeEvent.text)}
+                    onChange={(e) => setSalario(e.nativeEvent.text)}
                 />
             </View>
-            <RNPickerSelect
-                style={picketSelectStyles}
-                onValueChange={(value) => setMonths(value)}
-                placeholder={{
-                    label: 'Seleccióna los plazos...',
-                    value: null,
-                }}
-                items={[
-                    { label: '3 meses', value: 3 },
-                    { label: '6 meses', value: 6 },
-                    { label: '12 meses', value: 12 },
-                    { label: '24 meses', value: 24 },
-                ]}
-            />
         </View>
     );
 }

@@ -21,30 +21,27 @@
  import Result from './src/components/Results'
  
  export default function App(){
-   const [capital, setCapital] = useState(null);
-   const [interest, setInterest] = useState(null);
-   const [months, setMonths] = useState(null);
+   const [nombre, setNombre] = useState(null);
+   const [salario, setSalario] = useState(null);
    const [total, setTotal] =useState(null);
    const [errorMessage, setErrorMessage] = useState("");
 
    useEffect(() => {
-    if (capital && interest && months) calculate();
+    if (nombre && salario) calculate();
     else reset();
-    }, [capital, interest, months]);
+    }, [nombre, salario]);
     const calculate = () => {
         reset();
-        if (!capital) {
-            setErrorMessage('Añade la cantidad que quieres solicitar');
-        } else if (!interest) {
-            setErrorMessage('Añade el interes del prestamos');
-        } else if (!months) {
-            setErrorMessage('Seleccióna los meses a pagar');
+        if (!nombre) {
+            setErrorMessage('Ingrese su nombre');
+        } else if (!salario) {
+            setErrorMessage('Ingrese su salario');
         } else {
-            const i = interest / 100;
-            const fee = capital / ((1 - Math.pow(i + 1, -months)) / i);
+            const i  = 0.12
+            const salaridescuentos = salario * i;
+            const fee = salario - salaridescuentos;
             setTotal({
-            monthlyFee: fee.toFixed(2).replace('.', ','),
-            totalPayable: (fee * months).toFixed(2).replace('.', ','),
+            totalPayable: (fee).toFixed(2).replace('.', ','),
             });
         }
     };
@@ -59,17 +56,15 @@
      <>
      <StatusBar barStyle="light-content"/>
      <SafeAreaView style={styles.Header}>
-       <Text style={styles.HeadApp}>Cotizador de Prestamos</Text>
+       <Text style={styles.HeadApp}>Calculadora de Salario</Text>
        <Form
-         setCapital={setCapital}
-         setInterest={setInterest}
-         setMonths={setMonths}   
+         setNombre={setNombre}
+         setSalario={setSalario}   
        />
      </SafeAreaView>
      <Result
-        capital={capital}
-        interest={interest}
-        months={months}
+        nombre={nombre}
+        salario={salario}
         total={total}
         errorMessage={errorMessage}
      />

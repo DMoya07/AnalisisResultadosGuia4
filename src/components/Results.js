@@ -2,20 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function Result(props){
-    const {capital,interest, months, total, errorMessage} = props;
+    const {nombre,salario, total, errorMessage} = props;
 
     return (
         <View style={styles.content}>
             {total &&(
                 <View style={styles.boxResult}>
-                    <Text style={styles.title}>Resumen :D</Text>
-                    <DataResult title="Cantidad solicitada:" value={`${capital} $`}/>
-                    <DataResult title="Interes %:" value={`${interest}%`}/>
-                    <DataResult title="Plazos:" value={`${months} meses`}/>
-                    <DataResult title="Pago mensual:" value={`${total.monthlyFee} $`}/>
+                    <Text style={styles.title}>Resumen de Deducciones</Text>
+                    <DataResult title="Nombre Completo:" value={`${nombre}`}/>
+                    <DataResult title="Salario:" value={`$ ${salario}`}/>
+                    <DataResult title="Descuento ISS:" value={`3%`}/>
+                    <DataResult title="Descuento AFP:" value={`4%`}/>
+                    <DataResult title="Descuento Renta:" value={`5%`}/>
                     <DataResult
-                    title="Total a pagar:"
-                    value={`${total.totalPayable} $`}
+                    title="Salario Neto:"
+                    value={`$ ${total.totalPayable}`}
                     />
                 </View>
             )}
