@@ -8,7 +8,7 @@ export default function Result(props){
         <View style={styles.content}>
             {total &&(
                 <View style={styles.boxResult}>
-                    <Text style={styles.title}>Resumen</Text>
+                    <Text style={styles.title}>Resumen :D</Text>
                     <DataResult title="Cantidad solicitada:" value={`${capital} $`}/>
                     <DataResult title="Interes %:" value={`${interest}%`}/>
                     <DataResult title="Plazos:" value={`${months} meses`}/>
